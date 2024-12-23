@@ -1,17 +1,15 @@
-import React,{useState,useEffect} from 'react';
+import React from 'react';
 import './App.css';
+import Greeting from './Greeting';
 const App = () => {
-  const[data,setData] = useState([]);
-  useEffect(()=>{
-    fetch('https://jsonplaceholder.typicode.com/posts').then
-    (
-      response => response.json()
-    ).then(json=> setData(json))
-  },[])
+
+  
  return(
   <div>
     <center>
-      {data.map(item=><li key ={item.id}>{item.title}</li> )}
+     
+      <Greeting name="Divya"/>
+      
     </center>
   </div>
  )  
