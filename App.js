@@ -1,19 +1,22 @@
-import React,{useState} from 'react';
+import React,{useState,useEffect} from 'react';
 import './App.css';
 const App = () => {
-  const[data,setData] = useState(0);
+  const[data,setData] = useState([]);
+  useEffect(()=>{
+    fetch('https://jsonplaceholder.typicode.com/posts').then
+    (
+      response => response.json()
+    ).then(json=> setData(json))
+  },[])
+ return(
+  <div>
+    <center>
+      {data.map(item=><li key ={item.id}>{item.title}</li> )}
+    </center>
+  </div>
+ )  
 
-  return(
-    
-    <div>
-      <center>
-        <h1>{data}</h1>
-      
-        <button onClick = {() => setData(data+1)}>Increment</button>
-        <button onClick = {() => setData(data-1)}>Decrement</button>
-        <button onClick = {() => setData(0)}>Reset</button>
-      </center>
-    </div>
-  )
+  
+  
 }
 export default App;
