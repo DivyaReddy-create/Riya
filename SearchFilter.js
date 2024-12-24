@@ -1,4 +1,5 @@
 import React,{useState} from "react";
+import './App.css';
 const App = () => {
 const[data,setData] =useState('');
 const items=["Apple","Banana","Orange","Grapes","Almonds"];
